@@ -14,9 +14,11 @@ struct BlackjackGameView: View {
             Slider(value: $bet, in: 10...100, step: 10)
             Text("Zakład: \(Int(bet))")
 
-            HStack {
-                VStack {
-                    Text("🧑‍💼 Krupier")
+            VStack {
+                Text("🧑‍💼 Krupier")
+                Text("Suma: \(game.handValue(game.dealerHand))")
+                HStack {
+//                    Text("🧑‍💼 Krupier")
                     ForEach(game.dealerHand) { card in
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
@@ -30,11 +32,13 @@ struct BlackjackGameView: View {
                         }
 
                     }
-                    Text("Suma: \(game.handValue(game.dealerHand))")
+//                    Text("Suma: \(game.handValue(game.dealerHand))")
                 }
                 Spacer()
-                VStack {
-                    Text("🧑 Gracz")
+                Text("🧑 Gracz")
+                Text("Suma: \(game.handValue(game.playerHand))")
+                HStack {
+//                    Text("🧑 Gracz")
                     ForEach(game.playerHand) { card in
                         ZStack {
                             RoundedRectangle(cornerRadius: 8)
@@ -48,7 +52,7 @@ struct BlackjackGameView: View {
                         }
 
                     }
-                    Text("Suma: \(game.handValue(game.playerHand))")
+//                    Text("Suma: \(game.handValue(game.playerHand))")
                 }
             }
 
