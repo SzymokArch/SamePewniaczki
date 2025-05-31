@@ -59,19 +59,25 @@ class BlackjackGame: ObservableObject {
     @Published var dealerHand: [Card] = []
     @Published var message: String = ""
     @Published var isGameOver = true
-    @Published var balance: Int = 1000
-    var currentBet: Int = 10
-
+    var selectedPlayer: Player?
+    
+    func configure(with player: Player) {
+        self.selectedPlayer = player
+    }
+    
+    var currentBet: Int32 = 10
     
     private var deck = Deck()
     
-    func startGame(withBet bet: Int) -> Bool {
+    var onGameEnd: ((Int32) -> Void)? = nil
+    
+    func startGame(withBet bet: Int32) -> Bool {
         if !isGameOver {
             message = "Poprzednia gra nie została zakończona!"
             return false
         }
 
-        if balance < bet {
+        if selectedPlayer!.balance < bet {
             message = "Nie masz wystarczających środków!"
             return false
         }
@@ -93,8 +99,9 @@ class BlackjackGame: ObservableObject {
 
     func checkPlayerBust() {
         if handValue(playerHand) > 21 {
-            balance -= currentBet
+            selectedPlayer!.balance  -= currentBet
             message = "Przegrałeś! 🪦 -\(currentBet)"
+            onGameEnd?(-currentBet)
             isGameOver = true
         }
     }
@@ -110,15 +117,18 @@ class BlackjackGame: ObservableObject {
         let dealerTotal = handValue(dealerHand)
 
         if dealerTotal > 21 || playerTotal > dealerTotal {
-            balance += currentBet
-            message = "Wygrałeś! 🎉 +\(currentBet)"
-        } else if dealerTotal == playerTotal {
-            message = "Remis 🤝"
-        } else {
-            balance -= currentBet
-            message = "Krupier wygrał 😞 -\(currentBet)"
-        }
-        isGameOver = true
+            selectedPlayer!.balance  += currentBet
+                message = "Wygrałeś! 🎉 +\(currentBet)"
+                onGameEnd?(currentBet)
+            } else if dealerTotal == playerTotal {
+                message = "Remis 🤝"
+                onGameEnd?(0)
+            } else {
+                selectedPlayer!.balance  -= currentBet
+                message = "Krupier wygrał 😞 -\(currentBet)"
+                onGameEnd?(-currentBet)
+            }
+            isGameOver = true
     }
 
     func playerHits() {

@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Player.nickname, ascending: true)],
+        animation: .default)
+    private var players: FetchedResults<Player>
+    
+    @AppStorage("selectedPlayerNickname") private var selectedPlayerNickname: String = ""
     @AppStorage("nickname") private var nickname: String = ""
     @AppStorage("darkModeEnbled") private var darkModeEnbled: Bool = false
     @AppStorage("ballColorHex") private var ballColorHex: String = "#FF0000"
@@ -16,9 +24,10 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
-            Section(header: Text("Użytkownik")) {
-                TextField("Nickname", text: $nickname)
+            NavigationLink("Zarządzaj graczami") {
+                PlayerManagementView()
             }
+            .padding()
 
             Section(header: Text("Ustawienia")) {
                 Toggle("Tryb ciemny", isOn: $darkModeEnbled)
@@ -29,8 +38,8 @@ struct SettingsView: View {
             }
         }
         .onAppear {
-                    selectedColor = Color(hex: ballColorHex) ?? .red
-                }
+            selectedColor = Color(hex: ballColorHex) ?? .red
+        }
         .preferredColorScheme(darkModeEnbled ? .dark : .light)
         .navigationTitle("Ustawienia")
     }

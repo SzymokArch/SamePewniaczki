@@ -18,9 +18,13 @@ struct PersistenceController {
             newItem.timestamp = Date()
         }
         let player = Player(context: viewContext)
-        player.nickname = "Null"
+        player.nickname = "Gracz 1"
+        player.balance = 1000
         let game = GameRecord(context: viewContext)
-        game.type = "Null"
+        game.type = "Renta rodzinna - Świadczenie ZUS"
+        game.date = Date()
+        game.bet = 1000
+        game.player = player
         do {
             try viewContext.save()
         } catch {

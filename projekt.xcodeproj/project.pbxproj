@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226160902DEA5EC9003D0BFC /* DatabaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261608F2DEA5EC9003D0BFC /* DatabaseFunctions.swift */; };
+		226160922DEA5F46003D0BFC /* ActivePlayerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226160912DEA5F46003D0BFC /* ActivePlayerSection.swift */; };
+		226160942DEA5F6D003D0BFC /* RenamePlayerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226160932DEA5F6D003D0BFC /* RenamePlayerSection.swift */; };
+		226160962DEA5F95003D0BFC /* AddPlayerSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226160952DEA5F95003D0BFC /* AddPlayerSection.swift */; };
+		226160982DEA5FAE003D0BFC /* GameHistorySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226160972DEA5FAE003D0BFC /* GameHistorySection.swift */; };
+		2261609A2DEA6750003D0BFC /* PlinkoGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226160992DEA6750003D0BFC /* PlinkoGameLogic.swift */; };
 		22D385E92DCEDDB400694630 /* projektApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D385E82DCEDDB400694630 /* projektApp.swift */; };
 		22D385EB2DCEDDB400694630 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D385EA2DCEDDB400694630 /* ContentView.swift */; };
 		22D385ED2DCEDDB800694630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D385EC2DCEDDB800694630 /* Assets.xcassets */; };
@@ -17,10 +23,17 @@
 		22D386002DCEE1D800694630 /* BlackjackGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D385FF2DCEE1D800694630 /* BlackjackGameView.swift */; };
 		22D386022DCEE21600694630 /* PlinkoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D386012DCEE21600694630 /* PlinkoGameView.swift */; };
 		22D386042DCEE24200694630 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D386032DCEE24200694630 /* SettingsView.swift */; };
-		3FFDAE962DE7201200CC22C8 /* BlackJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFDAE952DE7200F00CC22C8 /* BlackJack.swift */; };
+		3F1465A22DE7278A001DFB18 /* PlayerManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1465A12DE7278A001DFB18 /* PlayerManagementView.swift */; };
+		3F1465A52DE72A68001DFB18 /* BlackJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1465A42DE72A68001DFB18 /* BlackJack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2261608F2DEA5EC9003D0BFC /* DatabaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseFunctions.swift; sourceTree = "<group>"; };
+		226160912DEA5F46003D0BFC /* ActivePlayerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivePlayerSection.swift; sourceTree = "<group>"; };
+		226160932DEA5F6D003D0BFC /* RenamePlayerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenamePlayerSection.swift; sourceTree = "<group>"; };
+		226160952DEA5F95003D0BFC /* AddPlayerSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerSection.swift; sourceTree = "<group>"; };
+		226160972DEA5FAE003D0BFC /* GameHistorySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHistorySection.swift; sourceTree = "<group>"; };
+		226160992DEA6750003D0BFC /* PlinkoGameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlinkoGameLogic.swift; sourceTree = "<group>"; };
 		22D385E52DCEDDB400694630 /* projekt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projekt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D385E82DCEDDB400694630 /* projektApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projektApp.swift; sourceTree = "<group>"; };
 		22D385EA2DCEDDB400694630 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,7 +45,8 @@
 		22D385FF2DCEE1D800694630 /* BlackjackGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameView.swift; sourceTree = "<group>"; };
 		22D386012DCEE21600694630 /* PlinkoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlinkoGameView.swift; sourceTree = "<group>"; };
 		22D386032DCEE24200694630 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		3FFDAE952DE7200F00CC22C8 /* BlackJack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackJack.swift; sourceTree = "<group>"; };
+		3F1465A12DE7278A001DFB18 /* PlayerManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManagementView.swift; sourceTree = "<group>"; };
+		3F1465A42DE72A68001DFB18 /* BlackJack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackJack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +79,20 @@
 		22D385E72DCEDDB400694630 /* projekt */ = {
 			isa = PBXGroup;
 			children = (
-				3FFDAE952DE7200F00CC22C8 /* BlackJack.swift */,
 				22D385E82DCEDDB400694630 /* projektApp.swift */,
 				22D385EA2DCEDDB400694630 /* ContentView.swift */,
 				22D385FB2DCEE0BA00694630 /* MainMenuView.swift */,
 				22D386012DCEE21600694630 /* PlinkoGameView.swift */,
+				226160992DEA6750003D0BFC /* PlinkoGameLogic.swift */,
 				22D386032DCEE24200694630 /* SettingsView.swift */,
+				3F1465A12DE7278A001DFB18 /* PlayerManagementView.swift */,
+				226160952DEA5F95003D0BFC /* AddPlayerSection.swift */,
+				226160972DEA5FAE003D0BFC /* GameHistorySection.swift */,
+				226160932DEA5F6D003D0BFC /* RenamePlayerSection.swift */,
+				226160912DEA5F46003D0BFC /* ActivePlayerSection.swift */,
+				2261608F2DEA5EC9003D0BFC /* DatabaseFunctions.swift */,
 				22D385FF2DCEE1D800694630 /* BlackjackGameView.swift */,
+				3F1465A42DE72A68001DFB18 /* BlackJack.swift */,
 				22D385EC2DCEDDB800694630 /* Assets.xcassets */,
 				22D385F12DCEDDB800694630 /* Persistence.swift */,
 				22D385F32DCEDDB800694630 /* projekt.xcdatamodeld */,
@@ -160,13 +181,20 @@
 			files = (
 				22D385FC2DCEE0BA00694630 /* MainMenuView.swift in Sources */,
 				22D386042DCEE24200694630 /* SettingsView.swift in Sources */,
+				226160922DEA5F46003D0BFC /* ActivePlayerSection.swift in Sources */,
+				226160902DEA5EC9003D0BFC /* DatabaseFunctions.swift in Sources */,
+				226160962DEA5F95003D0BFC /* AddPlayerSection.swift in Sources */,
+				2261609A2DEA6750003D0BFC /* PlinkoGameLogic.swift in Sources */,
 				22D386022DCEE21600694630 /* PlinkoGameView.swift in Sources */,
 				22D385F22DCEDDB800694630 /* Persistence.swift in Sources */,
+				3F1465A52DE72A68001DFB18 /* BlackJack.swift in Sources */,
 				22D385EB2DCEDDB400694630 /* ContentView.swift in Sources */,
+				226160982DEA5FAE003D0BFC /* GameHistorySection.swift in Sources */,
 				22D385E92DCEDDB400694630 /* projektApp.swift in Sources */,
 				22D385F52DCEDDB800694630 /* projekt.xcdatamodeld in Sources */,
 				22D386002DCEE1D800694630 /* BlackjackGameView.swift in Sources */,
-				3FFDAE962DE7201200CC22C8 /* BlackJack.swift in Sources */,
+				3F1465A22DE7278A001DFB18 /* PlayerManagementView.swift in Sources */,
+				226160942DEA5F6D003D0BFC /* RenamePlayerSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

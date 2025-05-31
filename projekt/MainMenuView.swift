@@ -9,29 +9,38 @@ import SwiftUI
 
 struct MainMenuView: View {
     @AppStorage("darkModeEnbled") private var darkModeEnbled: Bool = false
+    
     var body: some View {
         NavigationView {
-            VStack(spacing: 30) {
-                Text("Same Pewniaczki")
-                    .font(.largeTitle)
-                    .bold()
+            ZStack {
+                Image("table")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
 
-                NavigationLink("Blackjack", destination: BlackjackGameView(darkModeEnabled: $darkModeEnbled))
-                    .buttonStyle(.borderedProminent)
+                VStack(spacing: 30) {
+                    Text("Same Pewniaczki")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
 
-                NavigationLink("Plinko", destination: PlinkoGameView(darkModeEnabled: $darkModeEnbled))
-                    .buttonStyle(.borderedProminent)
+                    NavigationLink("Blackjack", destination: BlackjackGameView(darkModeEnabled: $darkModeEnbled))
+                        .buttonStyle(.borderedProminent)
 
-                NavigationLink("Ustawienia", destination: SettingsView())
-                    .buttonStyle(.bordered)
+                    NavigationLink("Plinko", destination: PlinkoGameView(darkModeEnabled: $darkModeEnbled))
+                        .buttonStyle(.borderedProminent)
 
-                Spacer()
+                    NavigationLink("Ustawienia", destination: SettingsView())
+                        .buttonStyle(.borderedProminent)
+
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
         }
     }
 }
 
 #Preview {
-    MainMenuView()
+    MainMenuView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

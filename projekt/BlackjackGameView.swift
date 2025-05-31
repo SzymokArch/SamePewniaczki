@@ -1,6 +1,18 @@
 import SwiftUI
 
 struct BlackjackGameView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @AppStorage("selectedPlayerNickname") private var selectedPlayerNickname: String = ""
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Player.nickname, ascending: true)],
+        animation: .default
+    ) private var players: FetchedResults<Player>
+
+    var selectedPlayer: Player? {
+        players.first(where: { $0.nickname == selectedPlayerNickname })
+    }
+    
     @Binding var darkModeEnabled: Bool
     @StateObject private var game = BlackjackGame()
 
@@ -60,16 +72,16 @@ struct BlackjackGameView: View {
                 Text(game.message).font(.headline).padding()
             }
             
-            Text("Saldo: \(game.balance) 💰")
+            Text("Saldo: \(selectedPlayer?.balance ?? 0) 💰")
                 .font(.headline)
 
             Button("Rozpocznij grę") {
-                let started = game.startGame(withBet: Int(bet))
+                let started = game.startGame(withBet: Int32(bet))
                 if !started {
                     showAlert = true
                 }
             }
-            .disabled(Int(bet) > game.balance)
+            .disabled(Int(bet) > (selectedPlayer?.balance ?? 0))
             .alert("Uwaga", isPresented: $showAlert) {
                 Button("OK", role: .cancel) { }
             } message: {
@@ -97,9 +109,25 @@ struct BlackjackGameView: View {
             bet *= 2
         }
         .preferredColorScheme(darkModeEnabled ? .dark : .light)
+        .onAppear {
+            game.configure(with: selectedPlayer!)
+            saveRecord()
+        }
+    }
+    
+    func saveRecord() {
+        game.onGameEnd = { result in
+            let newRecord = GameRecord(context: viewContext)
+            newRecord.date = Date()
+            newRecord.type = "Blackjack"
+            newRecord.bet = Int32(result)
+            newRecord.player = selectedPlayer
+            
+            saveContext(viewContext)
+        }
     }
 }
 
 #Preview {
-    BlackjackGameView(darkModeEnabled: .constant(false))
+    BlackjackGameView(darkModeEnabled: .constant(false)).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
